@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ht#%_4@%h+=$8_1x$#r3fc@v)6##-zlfr-u%g9(ejgs^3)-7@i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'listings',
     'seller',
+    'accounts',
+    'category',
 ]
 
 MIDDLEWARE = [
@@ -152,6 +154,14 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 3
 }
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000']
+
 CORS_ORIGIN_ALLOW_ALL = True
 
 FILE_UPLOAD_PERMISSIONS = 0o640
+
+AUTH_USER_MODEL = 'accounts.UserAccount'
+
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+)

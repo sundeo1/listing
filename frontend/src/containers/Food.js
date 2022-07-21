@@ -4,7 +4,7 @@ import axios from 'axios';
 import Card from '../components/Card';
 import Pagination from '../components/Pagination';
 
-const Listings = () => {
+const Food = () => {
   const [listings, setListings] = useState([]);
   const [count, setCount] = useState(0);
   const [previous, setPrevious] = useState('');
@@ -12,12 +12,12 @@ const Listings = () => {
   const [active, setActive] = useState(1);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    //window.scrollTo(0, 0);
 
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          'http://localhost:8000/api/listings/?page=1'
+          'http://localhost:8000/api/listings/food?page=1'
         );
 
         setListings(res.data.results);
@@ -67,7 +67,7 @@ const Listings = () => {
 
   const visitPage = (page) => {
     axios
-      .get(`${process.env.REACT_APP_API_URL}/api/listings/?page=${page}`)
+      .get(`${process.env.REACT_APP_API_URL}/api/listings/food?page=${page}`)
       .then((res) => {
         setListings(res.data.results);
         setPrevious(res.data.previous);
@@ -104,8 +104,8 @@ const Listings = () => {
   return (
     <main className='listings'>
       <Helmet>
-        <title>Listing App - Listings</title>
-        <meta name='description' content='Listings page' />
+        <title>Listing App - Food</title>
+        <meta name='description' content='Food page' />
       </Helmet>
       <section className='listings__listings'>{displayListings()}</section>
       <section className='listings__pagination'>
@@ -125,4 +125,4 @@ const Listings = () => {
   );
 };
 
-export default Listings;
+export default Food;

@@ -320,7 +320,7 @@ const ListingDetail = (props) => {
       <div className='listingdetail__header'>
         <h1 className='listingdetail__title'>{listing.title}</h1>
         <p className='listingdetail__location'>
-          {listing.city}, {listing.state}, {listing.zipcode}
+          {listing.address}, {listing.city}
         </p>
       </div>
       <div className='row'>
@@ -338,6 +338,7 @@ const ListingDetail = (props) => {
               className='listingdetail__display__image'
               src={listing.photo_main}
               alt=''
+              height={500}
             />
           </div>
         </div>
@@ -358,36 +359,15 @@ const ListingDetail = (props) => {
       <div className='row'>
         <div className='col-1-of-2'>
           <ul className='listingdetail__list'>
-            <li className='listingdetail__list__item'>
-              Home Type: {listing.home_type}
-            </li>
-            <li className='listingdetail__list__item'>Price: ${price}</li>
-            <li className='listingdetail__list__item'>
-              Bedrooms: {listing.bedrooms}
-            </li>
-            <li className='listingdetail__list__item'>
-              Bathrooms: {listing.bathrooms}
-            </li>
-            <li className='listingdetail__list__item'>
-              Square Feet: {listing.sqft}
-            </li>
+            <li className='listingdetail__list__item'>Price: UGX {numberWithCommas(price)}</li>
           </ul>
         </div>
         <div className='col-1-of-2'>
           <ul className='listingdetail__list'>
             <li className='listingdetail__list__item'>
-              Sale Type: {listing.sale_type}
-            </li>
-            <li className='listingdetail__list__item'>
               Address: {listing.address}
             </li>
             <li className='listingdetail__list__item'>City: {listing.city}</li>
-            <li className='listingdetail__list__item'>
-              State: {listing.state}
-            </li>
-            <li className='listingdetail__list__item'>
-              Zipcode: {listing.zipcode}
-            </li>
           </ul>
         </div>
       </div>

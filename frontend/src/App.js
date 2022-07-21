@@ -15,6 +15,11 @@ import { Provider } from 'react-redux';
 import store from './store';
 
 import './sass/main.scss';
+import Livestocks from './containers/Livestocks';
+import Fashion from './containers/Fashion';
+import Food from './containers/Food';
+import Others from './containers/Others';
+import RealEstate from './containers/RealEstate';
 
 const App = () => (
     <Provider store={store}>
@@ -22,6 +27,12 @@ const App = () => (
             <Layout>
                 <Switch>
                     <Route exact path='/' component={Listings} />
+                    <Route exact path='/search' component={Home} />
+                    <Route exact path='/livestocks' component={Livestocks} />
+                    <Route exact path='/fashion' component={Fashion} />
+                    <Route exact path='/others' component={Others} />
+                    <Route exact path='/food' component={Food} />
+                    <Route exact path='/real-estate' component={RealEstate} />
                     <Route exact path='/about' component={About} />
                     <Route exact path='/contact' component={Contact} />
                     <Route exact path='/listings/:id' component={ListingDetail} />

@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils.timezone import now
 from seller.models import Seller
-
+from category.models import Category
 class Listing(models.Model):
     seller = models.ForeignKey(Seller, on_delete=models.DO_NOTHING)
+    category = models.ForeignKey(Category, on_delete=models.DO_NOTHING)
     slug = models.CharField(max_length=200, unique=True)
     title = models.CharField(max_length=150)
     address = models.CharField(max_length=150)
@@ -33,6 +34,9 @@ class Listing(models.Model):
     photo_20 = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     is_published = models.BooleanField(default=True)
     list_date = models.DateTimeField(default=now, blank=True)
+    date_expired = models.DateTimeField(blank=False)
 
     def __str__(self):
         return self.title
+
+    

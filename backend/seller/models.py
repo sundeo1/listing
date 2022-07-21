@@ -9,6 +9,7 @@ class Seller(models.Model):
     email = models.CharField(max_length=100)
     top_seller = models.BooleanField(default=False)
     date_onboarded = models.DateTimeField(default=datetime.now, blank=True)
+    date_expired = models.DateTimeField(blank=False)
 
     def __str__(self):
         return self.name
